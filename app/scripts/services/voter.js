@@ -8,10 +8,9 @@
  * Service in the evidentHelpfulApp.
  */
 angular.module('evidentHelpfulApp')
-  .service('Voter', function ($window, $firebaseArray, FBURL) {
+  .service('Voter', function ($window, $firebaseArray, Ref) {
 
-    var fbase = new Firebase(FBURL + '/helpful');
-    var voteLog = $firebaseArray(fbase);
+    var voteLog = $firebaseArray(Ref.child('helpful'));
 
     var Voter = {
       upvote: upvote,
