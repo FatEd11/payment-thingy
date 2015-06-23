@@ -1,0 +1,45 @@
+<p>Price: {{mod.product.price}}</p>
+
+<form name="checkoutForm" ng-submit="mod.charge()" data-abide>
+  <fieldset>
+  <legend>Payment Information</legend>
+    <div class="">
+      <div class="col-lg-4 col-md-4" ng-class="{error: checkoutForm.number.$invalid}">
+        <label>Card Information
+        <br><input ng-model="mod.card.number" name="number" payments-format="card" payments-validate="card"
+          placeholder="Card Number" type="text"/>
+        </label>
+        <br><small class="error">Invalid card number</small>
+      </div>
+      <div class="col-lg-4 col-md-4" ng-class="{error: checkoutForm.expiry.$invalid}">
+        <label>Expiry
+        <br><input ng-model="mod.card.expMonth" name="expiry" payments-format="expiry" payments-validate="expiry"
+          placeholder="Expiry" type="text"/>
+          <input ng-model="mod.card.expYear" name="expiry" payments-format="expiry" payments-validate="expiry"
+          placeholder="Expiry" type="text"/>
+        </label>
+        <br><small class="error">Invalid date.</small>
+      </div>
+      <div class="col-lg-4 col-md-4" ng-class="{error: checkoutForm.cvc.$invalid}">
+        <label>CVC
+        <br><input ng-model="mod.card.cvc" name="cvc" payments-format="cvc" payments-validate="cvc"
+          placeholder="CVC" type="text"/>
+        </label>
+        <br><small class="error">Invalid CVC.</small>
+      </div>
+      <br><br>
+    </div>
+  </fieldset>
+
+
+  <div class="clearfix">
+    <div class="right">
+      <button type="submit" ng-disabled="checkoutForm.$invalid" >Place Order</button>
+    </div>
+  </div>
+
+</form>
+
+<div class="modal-footer">
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

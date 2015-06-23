@@ -20,5 +20,9 @@ angular.module('evidentHelpfulApp')
         templateUrl: 'views/chat.html',
         controller: 'ChatCtrl'
       })
+      .when('/products', {
+        templateUrl: 'views/products.html',
+        controller: 'ProductsCtrl as prod'
+      })
       .otherwise({redirectTo: '/'});
   }]);
